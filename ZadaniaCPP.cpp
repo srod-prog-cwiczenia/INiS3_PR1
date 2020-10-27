@@ -54,6 +54,41 @@ public:
 		o2->oblicz();
 		delete o2;
   }
+  static void sposobyPrzekazywaniaParametru() {
+	  class Sposoby {
+	  public:
+		  static void f1(int i) { //przez wartość
+			  cout << "Przez wartosc:\n";
+			  cout << i << endl;
+			  i += 100;
+		  }
+		  static void f2(int* wsk) { //przez wskaźnik (zapożyczenie z języka C)
+			  cout << "Przez wskaznik:\n";
+			  cout << *wsk << endl;
+			  *wsk += 100;
+		  }
+		  static void f3(int& i) { // przez zmienną (tylko w C++)
+			  cout << "Przez zmienna:\n";
+			  cout << i << endl;
+			  i += 100;
+		  }
+	  };
+	  int j = 7;
+	  Sposoby::f1(j);
+	  cout << j << endl << endl;
+
+	  j = 7;
+	  Sposoby::f2(&j);
+	  cout << j << endl << endl;
+
+	  j = 7;
+	  Sposoby::f3(j);
+	  cout << j << endl << endl;
+		  /*wynik: 
+		  Przez wartosc :   7    7
+		  Przez wskaznik :  7  107
+		  Przez zmienna :   7  107 */
+  }
 };
 
 
@@ -76,7 +111,7 @@ int main()
 			Zadania::rolaModyfikatoraVirtual();
 			break;
 		case 3:
-			cout << "TODO: Zadanie.\n";
+			Zadania::sposobyPrzekazywaniaParametru();
 			break;
 		}
 		delete mnu;
