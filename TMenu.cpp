@@ -23,8 +23,10 @@ unsigned int TMenu::wybierz()
 	/*for (unsigned int j = 0; j < tabItemsV.size(); j++)
 		cout << tabItemsV[j] << endl;*/
 	//albo mo¿na tak: for (auto txt : tabItemsV) 
+	unsigned int nrOpcji = 1;
 	for (string txt: tabItemsV)
-		cout << txt << endl;
+		cout << nrOpcji++ << ". " << txt << endl;
+	cout << endl << "0. Wyjscie";
 	unsigned int opcja;
 	do {
 		cin >> opcja;

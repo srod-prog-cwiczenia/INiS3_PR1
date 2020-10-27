@@ -3,6 +3,7 @@
 
 #include "TestKolekcji.h"
 #include "FormatowanieKolekcji.h"
+#include "TMenu.h"
 
 class Zadania {
 public:
@@ -58,7 +59,28 @@ public:
 
 int main()
 {
-  Zadania::testKlasKolekcja();
+	bool koniec = false;
+	do {
+		TMenu* mnu = new TMenu();
+		mnu->addAll(3, "Test klas Kolekcja",
+			"Przyklad modyfikatora virtual",
+			"Test rodzajow przekazywania argumentu");
+		switch (mnu->wybierz()) {
+		case 0:
+			koniec = true;
+			break;
+		case 1:
+			Zadania::testKlasKolekcja();
+			break;
+		case 2:
+			Zadania::rolaModyfikatoraVirtual();
+			break;
+		case 3:
+			cout << "TODO: Zadanie.\n";
+			break;
+		}
+		delete mnu;
+	} while (!koniec);
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
