@@ -9,5 +9,6 @@ string FormatowanieKolekcji::formatowanie(const string &linia) {
      return linia;
    unsigned int ile = 
      (MAX_ROZMIAR_LINII - linia.length()) / 2; 
-   return string(ile, ' ') + linia + string(ile, ' ');
+   return string(ile, ZNAK_FORMATUJACY) + linia + 
+       string(ile, ZNAK_FORMATUJACY);
 };  

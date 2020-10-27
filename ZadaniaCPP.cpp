@@ -9,18 +9,22 @@ public:
   static void testKlasKolekcja() {
     //std::cout << "Hello World!\n";
     // zmienna lokalna
+	cout << "TestKolekcji: \n";
     TestKolekcji tk(TRodzajWypelnieniaWektora::rwwDniTygodnia);
     tk.wypisanie();
-    
     cout << endl;
-    //wskaźnik na obiekt:
-    TestKolekcji *tK = new TestKolekcji(WEKTOR_DNI_TYGODNIA);
+
+	//wskaźnik na obiekt:
+	cout << "TestKolekcji: \n";
+	TestKolekcji *tK = new TestKolekcji(WEKTOR_DNI_TYGODNIA);
     tK->wypisanie();
     delete tK;
+	cout << endl;
 
     //zadanie : wypisać liczby 0 - 9 używając klasy potomnej:
     //FormatowanieKolekcji:
-    FormatowanieKolekcji* fK = new FormatowanieKolekcji(10);
+	cout << "FormatowanieKolekcji: \n";
+	FormatowanieKolekcji* fK = new FormatowanieKolekcji(10);
     fK->wypisanie();
     delete fK;
   }

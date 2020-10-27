@@ -10,6 +10,6 @@ public:
 	TestKolekcji(const TRodzajWypelnieniaWektora co);//konstruktor
 	~TestKolekcji(); //destruktor
 	void wypisanie();
-	string formatowanie(const string &linia);
+	virtual string formatowanie(const string &linia);
 };
 
