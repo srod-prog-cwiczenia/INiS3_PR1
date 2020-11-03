@@ -68,6 +68,8 @@ public:
 			  *wsk += 100;
 		  }
 		  static void f3(int& i) { // przez zmienną (tylko w C++)
+			  //jeśli chcemy mieć pewność że nie podmienimy wartości
+			  //zmiennej i w funkcji to stosujemy static void f3(const int& i) {...
 			  cout << "Przez zmienna:\n";
 			  cout << i << endl;
 			  i += 100;
