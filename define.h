@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <cstdarg>
+#include <assert.h>
 using namespace std;
 //stary styl zapo?yczony z j?zyka C:
 #define WEKTOR_DNI_TYGODNIA 't'

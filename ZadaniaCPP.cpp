@@ -7,6 +7,32 @@
 
 class Zadania {
 public:
+/*struktura DaneOsobyStr to tzw. klasa wewnętrzna, w main programu
+odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
+	struct DaneOsobyStr {
+		string imie, nazwisko;
+		unsigned long int wiek;
+		DaneOsobyStr(string imie_p, string nazwisko_p,
+			unsigned long int wiek_p) : imie
+			(imie_p), nazwisko(nazwisko_p), wiek(wiek_p) {};
+		string toString() {
+			return "imie: " + imie + "; nazwisko: " + nazwisko
+				+ "; wiek: " + to_string(wiek);
+		}
+		//rozwiązanie zadania 3 - przeciążenie operatora ,,<'':
+		friend bool operator<(const DaneOsobyStr& a, const DaneOsobyStr& b) {
+			if (a.nazwisko < b.nazwisko) return true;
+			if (a.nazwisko > b.nazwisko) return false;
+			if (a.imie < b.imie) return true;
+			if (a.imie > b.imie) return false;
+			if (a.wiek < b.wiek) return true;
+			if (a.wiek > b.wiek) return false;
+			return false;
+		}
+		friend bool operator>=(const DaneOsobyStr& a, const DaneOsobyStr& b) {
+			return !(a < b);
+		}
+	};
 	static void testKlasKolekcja() {
 		//std::cout << "Hello World!\n";
 		// zmienna lokalna
@@ -97,18 +123,9 @@ public:
 		Uwaga: struktura to prawie to samo co klasa które wszystkie
 		elementy są domyślnie public. Więc dlaczego w C++ istnieją struktury?
 		Aby zachować zgodność z C (w C są struktury).
-		Zadanie 2: zdefiniować kontruktor dla tej struktury, metodę toString(),*/
-		struct DaneOsobyStr {
-			string imie, nazwisko;
-			unsigned long int wiek;
-			DaneOsobyStr(string imie_p, string nazwisko_p, 
-				unsigned long int wiek_p) : imie
-				(imie_p), nazwisko(nazwisko_p), wiek(wiek_p) {};
-			string toString() {
-				return "imie: " + imie + "; nazwisko: " + nazwisko
-					+ "; wiek: " + to_string(wiek);
-			}
-		};
+		Zadanie 2: zdefiniować kontruktor dla tej struktury, metodę toString().
+		Zadanie 3: przeciążyć operator porównania < tak aby
+		można było porównywać struktury */
 		DaneOsobyStr oso0("Dorota", "Kowalska", 20); //konstruktor bezpośredni
 		DaneOsobyStr oso = { "Adam", "Kowalski", 25 }; //konstruktor kopiujący (dynamiczny)
 		/*jak zainicjonwać tablicę osób?*/
@@ -122,6 +139,9 @@ public:
 		cout << oso.toString() << endl;
 		for (auto osoL : osoTab)
 			cout << osoL.toString() << endl;
+		assert(oso0 < oso);
+		assert(!(oso < oso0));
+		assert(oso >= oso0);
 	}
 };
 
