@@ -15,3 +15,10 @@ enum class TRodzajWypelnieniaWektora {
 // define w nowym stylu:
 constexpr auto MAX_ROZMIAR_LINII = 10;
 constexpr auto ZNAK_FORMATUJACY = '*';
+// typ wskaŸnika na funkcjê :
+typedef string (*TFunkcjaFormatowanie)(string);
+/*TODO: 
+  czym ró¿ni siê ta definicja powy¿ej od :
+  typedef string (TFunkcjaFormatowanie)(string);
+*/
+

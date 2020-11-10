@@ -4,8 +4,8 @@ class TestKolekcji
 {
 	/*
 	* Zadanie:
-	* 1. zdefiniwaæ typ funkcyjny TFunkcjaFormatowanie
-	* 2. zadeklarowaæ prywatne pole o rzeczonym typie w tej klasie
+	* 1. zdefiniwaæ typ funkcyjny TFunkcjaFormatowanie [DONE]
+	* 2. zadeklarowaæ prywatne pole o rzeczonym typie w tej klasie [DONE]
 	* 3. utorzyæ setter do tego pola
 	* 4. zaimplementowaæ pole w metodzie formatowanie
 	* 5. Stworzyæ lambda funkcjê formatuj¹c¹ (w jakikolwiek sposób)
@@ -15,6 +15,7 @@ class TestKolekcji
 	*/
 private:
 	vector<string> vec;
+	TFunkcjaFormatowanie funFormat = NULL;
 public:
 	TestKolekcji(const int ile); //konstruktor
 	TestKolekcji(const char co);  //konstruktor
@@ -23,4 +24,3 @@ public:
 	void wypisanie();
 	virtual string formatowanie(const string &linia);
 };
-
