@@ -19,7 +19,7 @@ odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
 			return "imie: " + imie + "; nazwisko: " + nazwisko
 				+ "; wiek: " + to_string(wiek);
 		}
-		//rozwiązanie zadania 3 - przeciążenie operatora ,,<'':
+		//rozwiązanie zadania 3 - przeciążenia operatorów porównań: <,>,==,!=,<=,>=:
 		friend bool operator<(const DaneOsobyStr& a, const DaneOsobyStr& b) {
 			if (a.nazwisko < b.nazwisko) return true;
 			if (a.nazwisko > b.nazwisko) return false;
@@ -43,6 +43,14 @@ odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
 		}
 		friend bool operator <= (const DaneOsobyStr & a, const DaneOsobyStr & b) {
 			return a < b || a == b;
+		}
+		/*przeciążenie operatora negacji: */
+		bool operator! () {
+   		    return !imie.empty() || !nazwisko.empty() || wiek;
+		}
+		/*przeciążenie operatorów rzutowań: */
+		operator string() {
+			return toString();
 		}
 	};
 	static void testKlasKolekcja() {
@@ -158,6 +166,11 @@ odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
 		assert(oso >= oso0);
 		assert(oso != oso0);
 		assert(DaneOsobyStr("Anna", "Kowalska", 18) <= DaneOsobyStr("Anna", "Kowalska", 19));
+		assert(!oso && !oso0);
+		assert(!!DaneOsobyStr({ "", "", 0 }));
+		/*pierwszy od prawej wykrzyknik to przeciążenie operatora ! na klasę DaneOsobyStr.
+		  pierwszy od lewej wykrzyknik to po prostu negacja boolowska */
+		cout << endl << "Rzutowanie do typu string:" << (string)oso0 << endl;
 	}
 };
 
