@@ -1,70 +1,16 @@
 ﻿// ZadaniaZCPP.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
 //
 
+#include "Zadania.h"
 #include "TestKolekcji.h"
 #include "FormatowanieKolekcji.h"
 #include "TMenu.h"
 
-class Zadania {
+class __Zadania : public Zadania {
+	//TODO: przenieść wszystkie metody klasy __Zadania do Zadania.cpp
 public:
 /*struktura DaneOsobyStr to tzw. klasa wewnętrzna, w main programu
 odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
-	struct DaneOsobyStr {
-		string imie, nazwisko;
-		unsigned long int wiek;
-		DaneOsobyStr(string imie_p, string nazwisko_p,
-			unsigned long int wiek_p) : imie
-			(imie_p), nazwisko(nazwisko_p), wiek(wiek_p) {};
-		string toString() {
-			return "imie: " + imie + "; nazwisko: " + nazwisko
-				+ "; wiek: " + to_string(wiek);
-		}
-		//rozwiązanie zadania 3 - przeciążenia operatorów porównań: <,>,==,!=,<=,>=:
-		friend bool operator<(const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			if (a.nazwisko < b.nazwisko) return true;
-			if (a.nazwisko > b.nazwisko) return false;
-			if (a.imie < b.imie) return true;
-			if (a.imie > b.imie) return false;
-			if (a.wiek < b.wiek) return true;
-			if (a.wiek > b.wiek) return false;
-			return false;
-		}
-		friend bool operator>=(const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return !(a < b);
-		}
-		friend bool operator==(const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return a.nazwisko == b.nazwisko && a.imie == b.imie && a.wiek == b.wiek;
-		}
-		friend bool operator!=(const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return !(a == b);
-		}
-		friend bool operator >(const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return a >= b && a != b;
-		}
-		friend bool operator <= (const DaneOsobyStr & a, const DaneOsobyStr & b) {
-			return a < b || a == b;
-		}
-		/*przeciążenie operatora negacji: */
-		bool operator! () {
-   		    return !imie.empty() || !nazwisko.empty() || wiek;
-		}
-		/*przeciążenie operatorów rzutowań: */
-		operator string() {
-			return toString();
-		}
-		/* przeciążenie operatorów dodawania: + oraz += */
-		friend DaneOsobyStr operator + (const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return DaneOsobyStr(a.imie + b.imie,
-				a.nazwisko + b.nazwisko,
-				a.wiek + b.wiek
-			);
-		}
-		friend DaneOsobyStr operator += (DaneOsobyStr& a, const DaneOsobyStr& b) {//a += b
-			a = a + b;
-			return a;
-		}
-
-	};
 	static void testKlasKolekcja() {
 		//std::cout << "Hello World!\n";
 		// zmienna lokalna
@@ -151,40 +97,6 @@ odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
 		Przez wskaznik :  7  107
 		Przez zmienna :   7  107 */
 	}
-	static void przeciazanieOperatorow() {
-		/* Zadanie 1:zdefiniować strukturę DaneOsobyStr która
-		będzie zawierać pola: imie, nazwisko, wiek.
-		Uwaga: struktura to prawie to samo co klasa które wszystkie
-		elementy są domyślnie public. Więc dlaczego w C++ istnieją struktury?
-		Aby zachować zgodność z C (w C są struktury).
-		Zadanie 2: zdefiniować kontruktor dla tej struktury, metodę toString().
-		Zadanie 3: przeciążyć operator porównania < tak aby
-		można było porównywać struktury */
-		DaneOsobyStr oso0("Dorota", "Kowalska", 20); //konstruktor bezpośredni
-		DaneOsobyStr oso = { "Adam", "Kowalski", 25 }; //konstruktor kopiujący (dynamiczny)
-		/*jak zainicjonwać tablicę osób?*/
-		DaneOsobyStr osoTab[] = { { "Dorota", "Kowalska", 20},
-			{ "Adam", "Kowalski", 25 } };//też konstruktor dynamiczny
-		/*uwaga (przetestować to ;) ) słowo explicit 
-		  umieszczone przez konstruktorem blokuje 
-		  funkcjonowanie konstruktorów dynamicznych 
-		*/
-		cout << oso0.toString() << endl;
-		cout << oso.toString() << endl;
-		for (auto osoL : osoTab)
-			cout << osoL.toString() << endl;
-		assert(oso0 < oso);
-		assert(!(oso < oso0));
-		assert(oso >= oso0);
-		assert(oso != oso0);
-		assert(DaneOsobyStr("Anna", "Kowalska", 18) <= DaneOsobyStr("Anna", "Kowalska", 19));
-		assert(!oso && !oso0);
-		assert(!!DaneOsobyStr({ "", "", 0 }));
-		/*pierwszy od prawej wykrzyknik to przeciążenie operatora ! na klasę DaneOsobyStr.
-		  pierwszy od lewej wykrzyknik to po prostu negacja boolowska */
-		cout << endl << "Rzutowanie do typu string:" << (string)oso0 << endl;
-		cout << endl << "Dodawanie struktur: " << (string)(oso + oso0) << endl;
-	}
 };
 
 
@@ -202,16 +114,16 @@ int main()
 			koniec = true;
 			break;
 		case 1:
-			Zadania::testKlasKolekcja();
+			__Zadania::testKlasKolekcja();
 			break;
 		case 2:
-			Zadania::rolaModyfikatoraVirtual();
+			__Zadania::rolaModyfikatoraVirtual();
 			break;
 		case 3:
-			Zadania::sposobyPrzekazywaniaParametru();
+			__Zadania::sposobyPrzekazywaniaParametru();
 			break;
 		case 4:
-			Zadania::przeciazanieOperatorow();
+			__Zadania::przeciazanieOperatorow();
 			break;
 		}
 		delete mnu;
