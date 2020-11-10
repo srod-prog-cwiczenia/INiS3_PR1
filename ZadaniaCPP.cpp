@@ -52,6 +52,18 @@ odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
 		operator string() {
 			return toString();
 		}
+		/* przeciążenie operatorów dodawania: + oraz += */
+		friend DaneOsobyStr operator + (const DaneOsobyStr& a, const DaneOsobyStr& b) {
+			return DaneOsobyStr(a.imie + b.imie,
+				a.nazwisko + b.nazwisko,
+				a.wiek + b.wiek
+			);
+		}
+		friend DaneOsobyStr operator += (DaneOsobyStr& a, const DaneOsobyStr& b) {//a += b
+			a = a + b;
+			return a;
+		}
+
 	};
 	static void testKlasKolekcja() {
 		//std::cout << "Hello World!\n";
@@ -171,6 +183,7 @@ odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
 		/*pierwszy od prawej wykrzyknik to przeciążenie operatora ! na klasę DaneOsobyStr.
 		  pierwszy od lewej wykrzyknik to po prostu negacja boolowska */
 		cout << endl << "Rzutowanie do typu string:" << (string)oso0 << endl;
+		cout << endl << "Dodawanie struktur: " << (string)(oso + oso0) << endl;
 	}
 };
 
