@@ -32,6 +32,18 @@ odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
 		friend bool operator>=(const DaneOsobyStr& a, const DaneOsobyStr& b) {
 			return !(a < b);
 		}
+		friend bool operator==(const DaneOsobyStr& a, const DaneOsobyStr& b) {
+			return a.nazwisko == b.nazwisko && a.imie == b.imie && a.wiek == b.wiek;
+		}
+		friend bool operator!=(const DaneOsobyStr& a, const DaneOsobyStr& b) {
+			return !(a == b);
+		}
+		friend bool operator >(const DaneOsobyStr& a, const DaneOsobyStr& b) {
+			return a >= b && a != b;
+		}
+		friend bool operator <= (const DaneOsobyStr & a, const DaneOsobyStr & b) {
+			return a < b || a == b;
+		}
 	};
 	static void testKlasKolekcja() {
 		//std::cout << "Hello World!\n";
@@ -144,6 +156,8 @@ odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
 		assert(oso0 < oso);
 		assert(!(oso < oso0));
 		assert(oso >= oso0);
+		assert(oso != oso0);
+		assert(DaneOsobyStr("Anna", "Kowalska", 18) <= DaneOsobyStr("Anna", "Kowalska", 19));
 	}
 };
 
