@@ -101,17 +101,19 @@ odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
 				i += 100;
 			}
 		};
-		int j = 7;
-		Sposoby::f1(j);
-		cout << j << endl << endl;
-
-		j = 7;
-		Sposoby::f2(&j);
-		cout << j << endl << endl;
-
-		j = 7;
-		Sposoby::f3(j);
-		cout << j << endl << endl;
+		int j;
+		for (int sposob = 1; sposob <= 3; sposob++) {
+			j = 7;
+			switch (sposob) {
+			case 1:
+				Sposoby::f1(j); break;
+			case 2:
+				Sposoby::f2(&j); break;
+			case 3:
+				Sposoby::f3(j); break;
+			}
+			cout << j << endl << endl;
+		}
 		/*wynik:
 		Przez wartosc :   7    7
 		Przez wskaznik :  7  107
