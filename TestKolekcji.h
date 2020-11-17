@@ -9,7 +9,7 @@ class TestKolekcji
 	* 3. utorzyæ setter do tego pola [DONE]
 	* 4. zaimplementowaæ pole w metodzie formatowanie [DONE]
 	* 5. Stworzyæ lambda funkcjê formatuj¹c¹ (w jakikolwiek sposób)
-	*    i zastosowaæ j¹ w obiekcie klasy TestKolekcji.
+	*    i zastosowaæ j¹ w obiekcie klasy TestKolekcji. [DONE]
 	  uwaga: zmiany wprowadzaæ tak by nie niszczyæ
 	  dzia³aj¹cego ju¿ kodu!
 	*/

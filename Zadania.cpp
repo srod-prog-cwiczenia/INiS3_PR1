@@ -64,14 +64,23 @@ void Zadania::testyKlasyKolekcja_typFunkcyjny()
 {
 	//cout << "typ funkcyjny TODO." << endl;
 	/*lambda funkcje to funkcje ,,lokalne'' */
-	auto formatujL = [](const string& txt) -> string {
+/*	auto formatujL = [](const string& txt) -> string {
 		string res;
 		for (auto ch : txt)
 			res += toupper(ch);
 		return res;
-	};
+	}; */ // tak siê tworzy zmienn¹ funkcyjna lokaln¹
 	TestKolekcji* tk = new TestKolekcji(TRodzajWypelnieniaWektora::rwwDniTygodnia);
-	tk->setFunkcjaFormatujaca(formatujL);
+	/*TODO: dodaæ do funkcji formatuj¹cej licznik wierszy */
+	tk->setFunkcjaFormatujaca(
+		[](const string& txt) -> string {
+			int licznik = 0; 
+			string res;
+			for (auto ch : txt)
+				res += toupper(ch);
+			return to_string(licznik++) + ". " + res;  //zle - bêd¹ same zera - licznik nie dzia³a....
+		}
+	);
 	tk->wypisanie();
 	delete tk;
 }
