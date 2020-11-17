@@ -59,9 +59,22 @@ void Zadania::testyKlasyKolekcja_funkcjaWirtualna()
 	fK->wypisanie();
 	delete fK;
 }
+// to jest funkcja ,,wisz¹ca'' czyli nie
+// nale¿y do ¿adnej klasy, ¿adnego namespace, etc.
+string formatujL(string txt) {
+	string res;
+	for (auto ch : txt)
+		res += toupper(ch);
+	return res;
+}
+
 void Zadania::testyKlasyKolekcja_typFunkcyjny()
 {
-	cout << "typ funkcyjny TODO." << endl;
+	//cout << "typ funkcyjny TODO." << endl;
+	TestKolekcji* tk = new TestKolekcji(TRodzajWypelnieniaWektora::rwwDniTygodnia);
+	tk->setFunkcjaFormatujaca(formatujL);
+	tk->wypisanie();
+	delete tk;
 }
 void Zadania::testyKlasyKolekcja()
 {
