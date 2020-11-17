@@ -20,5 +20,7 @@ typedef string (*TFunkcjaFormatowanie)(string);
 /*TODO: 
   czym ró¿ni siê ta definicja powy¿ej od :
   typedef string (TFunkcjaFormatowanie)(string);
+  odpowiedŸ: to jest typ w zasadzie ma³o gdzie u¿ywany, 
+  czêsto i tak jest konwertowany do string (*TFunkcjaFormatowanie)(string);
 */
 

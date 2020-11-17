@@ -26,8 +26,8 @@ void Zadania::przeciazanieOperatorow() {
 	assert(oso >= oso0);
 	assert(oso != oso0);
 	assert(DaneOsobyStr("Anna", "Kowalska", 18) <= DaneOsobyStr("Anna", "Kowalska", 19));
-	assert(!oso && !oso0);
-	assert(!!DaneOsobyStr({ "", "", 0 }));
+	assert(!!oso && !!oso0);
+	assert(!DaneOsobyStr({ "", "", 0 }));
 	/*pierwszy od prawej wykrzyknik to przeci¹¿enie operatora ! na klasê DaneOsobyStr.
 	  pierwszy od lewej wykrzyknik to po prostu negacja boolowska */
 	cout << endl << "Rzutowanie do typu string:" << (string)oso0 << endl;

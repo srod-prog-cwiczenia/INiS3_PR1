@@ -6,7 +6,7 @@ class TestKolekcji
 	* Zadanie:
 	* 1. zdefiniwaæ typ funkcyjny TFunkcjaFormatowanie [DONE]
 	* 2. zadeklarowaæ prywatne pole o rzeczonym typie w tej klasie [DONE]
-	* 3. utorzyæ setter do tego pola
+	* 3. utorzyæ setter do tego pola [DONE]
 	* 4. zaimplementowaæ pole w metodzie formatowanie
 	* 5. Stworzyæ lambda funkcjê formatuj¹c¹ (w jakikolwiek sposób)
 	*    i zastosowaæ j¹ w obiekcie klasy TestKolekcji.
@@ -23,4 +23,5 @@ public:
 	~TestKolekcji(); //destruktor
 	void wypisanie();
 	virtual string formatowanie(const string &linia);
+	void setFunkcjaFormatujaca(TFunkcjaFormatowanie fun_p);
 };

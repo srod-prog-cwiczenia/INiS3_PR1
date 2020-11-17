@@ -40,7 +40,7 @@ public:
 		}
 		/*przeci¹¿enie operatora negacji: */
 		bool operator! () {
-			return !imie.empty() || !nazwisko.empty() || wiek;
+			return imie.empty() && nazwisko.empty() && !wiek;
 		}
 		/*przeci¹¿enie operatorów rzutowañ: */
 		operator string() {

@@ -59,6 +59,16 @@ void TestKolekcji::wypisanie()
 
 string TestKolekcji::formatowanie(const string &linia)
 {
-	return linia;
+	if (funFormat == NULL) {
+		return linia;
+	}
+	else {
+		return funFormat(linia);
+	}
+}
+
+void TestKolekcji::setFunkcjaFormatujaca(TFunkcjaFormatowanie fun_p)
+{
+	funFormat = fun_p;
 }
 
