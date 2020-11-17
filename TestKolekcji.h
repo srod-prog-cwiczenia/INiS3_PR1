@@ -7,7 +7,7 @@ class TestKolekcji
 	* 1. zdefiniwaæ typ funkcyjny TFunkcjaFormatowanie [DONE]
 	* 2. zadeklarowaæ prywatne pole o rzeczonym typie w tej klasie [DONE]
 	* 3. utorzyæ setter do tego pola [DONE]
-	* 4. zaimplementowaæ pole w metodzie formatowanie
+	* 4. zaimplementowaæ pole w metodzie formatowanie [DONE]
 	* 5. Stworzyæ lambda funkcjê formatuj¹c¹ (w jakikolwiek sposób)
 	*    i zastosowaæ j¹ w obiekcie klasy TestKolekcji.
 	  uwaga: zmiany wprowadzaæ tak by nie niszczyæ

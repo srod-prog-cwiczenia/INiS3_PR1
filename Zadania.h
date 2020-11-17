@@ -3,6 +3,8 @@
 class Zadania
 {
 public:
+	/*struktura DaneOsobyStr to tzw. klasa wewnêtrzna, w main programu
+odwo³ujemy siê do niej poprzez Zadania::DaneOsobyStr */
 	struct DaneOsobyStr {
 		string imie, nazwisko;
 		unsigned long int wiek;
@@ -62,6 +64,8 @@ public:
 	};
 	// metody klasy:
 	static void przeciazanieOperatorow();
-
+	static void testyKlasyKolekcja_funkcjaWirtualna();
+	static void testyKlasyKolekcja_typFunkcyjny();
+	static void testyKlasyKolekcja();
 };
 

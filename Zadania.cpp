@@ -1,4 +1,7 @@
 #include "Zadania.h"
+#include "TMenu.h"
+//#include "TestKolekcji.h"
+#include "FormatowanieKolekcji.h"
 void Zadania::przeciazanieOperatorow() {
 	/* Zadanie 1:zdefiniowaæ strukturê DaneOsobyStr która
 	bêdzie zawieraæ pola: imie, nazwisko, wiek.
@@ -32,4 +35,52 @@ void Zadania::przeciazanieOperatorow() {
 	  pierwszy od lewej wykrzyknik to po prostu negacja boolowska */
 	cout << endl << "Rzutowanie do typu string:" << (string)oso0 << endl;
 	cout << endl << "Dodawanie struktur: " << (string)(oso + oso0) << endl;
-};
+}
+void Zadania::testyKlasyKolekcja_funkcjaWirtualna()
+{
+	//std::cout << "Hello World!\n";
+// zmienna lokalna
+	cout << "TestKolekcji: \n";
+	TestKolekcji tk(TRodzajWypelnieniaWektora::rwwDniTygodnia);
+	tk.wypisanie();
+	cout << endl;
+
+	//wskaŸnik na obiekt:
+	cout << "TestKolekcji: \n";
+	TestKolekcji* tK = new TestKolekcji(WEKTOR_DNI_TYGODNIA);
+	tK->wypisanie();
+	delete tK;
+	cout << endl;
+
+	//zadanie : wypisaæ liczby 0 - 9 u¿ywaj¹c klasy potomnej:
+	//FormatowanieKolekcji:
+	cout << "FormatowanieKolekcji: \n";
+	FormatowanieKolekcji* fK = new FormatowanieKolekcji(10);
+	fK->wypisanie();
+	delete fK;
+}
+void Zadania::testyKlasyKolekcja_typFunkcyjny()
+{
+	cout << "typ funkcyjny TODO." << endl;
+}
+void Zadania::testyKlasyKolekcja()
+{
+	bool koniec = false;
+	do {
+		TMenu* mnu = new TMenu();
+		mnu->addAll(2, "Przez funkcje wirtualne", "Przez typy funkcyjne");
+		auto opcja = mnu->wybierz();
+		switch (opcja) {
+		case 0:
+			koniec = true;
+			break;
+		case 1:
+			testyKlasyKolekcja_funkcjaWirtualna();
+			break;
+		case 2:
+			testyKlasyKolekcja_typFunkcyjny();
+			break;
+		}
+	} while (!koniec);
+}
+;

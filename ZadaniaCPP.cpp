@@ -9,30 +9,6 @@
 class __Zadania : public Zadania {
 	//TODO: przenieść wszystkie metody klasy __Zadania do Zadania.cpp
 public:
-/*struktura DaneOsobyStr to tzw. klasa wewnętrzna, w main programu
-odwołujemy się do niej poprzez Zadania::DaneOsobyStr */
-	static void testKlasKolekcja() {
-		//std::cout << "Hello World!\n";
-		// zmienna lokalna
-		cout << "TestKolekcji: \n";
-		TestKolekcji tk(TRodzajWypelnieniaWektora::rwwDniTygodnia);
-		tk.wypisanie();
-		cout << endl;
-
-		//wskaźnik na obiekt:
-		cout << "TestKolekcji: \n";
-		TestKolekcji* tK = new TestKolekcji(WEKTOR_DNI_TYGODNIA);
-		tK->wypisanie();
-		delete tK;
-		cout << endl;
-
-		//zadanie : wypisać liczby 0 - 9 używając klasy potomnej:
-		//FormatowanieKolekcji:
-		cout << "FormatowanieKolekcji: \n";
-		FormatowanieKolekcji* fK = new FormatowanieKolekcji(10);
-		fK->wypisanie();
-		delete fK;
-	}
 	static void rolaModyfikatoraVirtual() {
 		class K1 {
 		public:
@@ -114,7 +90,7 @@ int main()
 			koniec = true;
 			break;
 		case 1:
-			__Zadania::testKlasKolekcja();
+			Zadania::testyKlasyKolekcja();
 			break;
 		case 2:
 			__Zadania::rolaModyfikatoraVirtual();
