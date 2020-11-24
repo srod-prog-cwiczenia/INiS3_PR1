@@ -120,4 +120,36 @@ void Zadania::testyKlasyKolekcja()
 		}
 	} while (!koniec);
 }
-;
+void Zadania::rolaModyfikatoraVirtual()
+{
+	class K1 {
+		public:
+			virtual int f(int p) {
+				return p;
+			};
+			void oblicz() {
+				for (int i : {1, 2, 3, 4, 5}) {
+					cout << f(i) << "\t";
+				}
+				cout << endl;
+			}
+	};
+	class K2 : public K1 {
+		public:
+			int f(int p) {
+				return p * p;
+			};
+	};
+    cout << "Z powodu wirtualnoœci metody ukazuje siê lista kwadratów liczb:\n";
+	K2* o2 = new K2();
+	//((K1*)o2)->oblicz();
+	o2->oblicz();
+	delete o2;
+}
+
+void Zadania::zadaniaZModyfikacjiKolekcji()
+{
+	//TODO: utworzyc kolekcje lancuchow, przeksztalcic ja za pomoca
+	//transform (#include <algorithm>) na lancuchy z duzymi literami
+	//a potem ze zliczaniem - tu uzyæ funktorów.
+};

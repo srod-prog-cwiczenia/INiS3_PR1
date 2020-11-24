@@ -67,5 +67,8 @@ odwo³ujemy siê do niej poprzez Zadania::DaneOsobyStr */
 	static void testyKlasyKolekcja_funkcjaWirtualna();
 	static void testyKlasyKolekcja_typFunkcyjny();
 	static void testyKlasyKolekcja();
+	static void rolaModyfikatoraVirtual();
+	static void zadaniaZModyfikacjiKolekcji();
+
 };
 

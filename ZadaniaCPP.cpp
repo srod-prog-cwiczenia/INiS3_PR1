@@ -9,31 +9,6 @@
 class __Zadania : public Zadania {
 	//TODO: przenieść wszystkie metody klasy __Zadania do Zadania.cpp
 public:
-	static void rolaModyfikatoraVirtual() {
-		class K1 {
-		public:
-			virtual int f(int p) {
-				return p;
-			};
-			void oblicz() {
-				for (int i : {1, 2, 3, 4, 5}) {
-					cout << f(i) << "\t";
-				}
-				cout << endl;
-			}
-		};
-		class K2 : public K1 {
-		public:
-			int f(int p) {
-				return p * p;
-			};
-		};
-		cout << "Z powodu wirtualności metody ukazuje się lista kwadratów liczb:\n";
-		K2* o2 = new K2();
-		//((K1*)o2)->oblicz();
-		o2->oblicz();
-		delete o2;
-	}
 	static void sposobyPrzekazywaniaParametru() {
 		class Sposoby {
 		public:
@@ -81,10 +56,11 @@ int main()
 	bool koniec = false;
 	do {
 		TMenu* mnu = new TMenu();
-		mnu->addAll(4, "Test klas Kolekcja",
+		mnu->addAll(5, "Test klas Kolekcja",
 			"Przyklad modyfikatora virtual",
 			"Test rodzajow przekazywania argumentu",
-			"Przeciazanie operatorow (zadania)");
+			"Przeciazanie operatorow (zadania)",
+			"Zadania z automatycznej modyfikacji kolekcji");
 		switch (mnu->wybierz()) {
 		case 0:
 			koniec = true;
@@ -93,13 +69,16 @@ int main()
 			Zadania::testyKlasyKolekcja();
 			break;
 		case 2:
-			__Zadania::rolaModyfikatoraVirtual();
+			Zadania::rolaModyfikatoraVirtual();
 			break;
 		case 3:
 			__Zadania::sposobyPrzekazywaniaParametru();
 			break;
 		case 4:
 			__Zadania::przeciazanieOperatorow();
+			break;
+		case 5:
+			Zadania::zadaniaZModyfikacjiKolekcji();
 			break;
 		}
 		delete mnu;
