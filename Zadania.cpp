@@ -71,18 +71,34 @@ void Zadania::testyKlasyKolekcja_typFunkcyjny()
 		return res;
 	}; */ // tak siê tworzy zmienn¹ funkcyjna lokaln¹
 	TestKolekcji* tk = new TestKolekcji(TRodzajWypelnieniaWektora::rwwDniTygodnia);
-	/*TODO: dodaæ do funkcji formatuj¹cej licznik wierszy */
+	int licznik = 0;
+	/*TODO: dodaæ do funkcji formatuj¹cej licznik wierszy - uwaga : rozwi¹zanie postaci
+	[&licznik] tu nie dzia³a...*/
 	tk->setFunkcjaFormatujaca(
 		[](const string& txt) -> string {
-			int licznik = 0; 
 			string res;
+			//int licznik = 1; - tu konstrukcja zastosowana poni¿ej do
+			//samodzielnej lambda funkcji nie przechodzi
 			for (auto ch : txt)
 				res += toupper(ch);
-			return to_string(licznik++) + ". " + res;  //zle - bêd¹ same zera - licznik nie dzia³a....
+			return res;  
 		}
-	);
+	);  
 	tk->wypisanie();
 	delete tk;
+	/* to poni¿sze rozwi¹zanie dzia³a w przypadku kiedy u¿ywamy lambda
+	funkcji formatuj¹cej samodzielnie: */
+	auto funkcjaLicznik = [&licznik](const string& txt) -> string {
+		string res;
+		for (auto ch : txt)
+			res += toupper(ch);
+		return to_string(++licznik) + ". " + res;  //zle - bêd¹ same zera - licznik nie dzia³a....
+	};
+	licznik = 0;
+	cout << string(50, '=') << endl;
+	for (int jj = 1; jj < 10; jj++) {
+		cout << funkcjaLicznik(" " + to_string(jj)) << endl;
+	}
 }
 void Zadania::testyKlasyKolekcja()
 {
