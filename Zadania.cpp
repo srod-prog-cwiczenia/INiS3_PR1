@@ -151,5 +151,22 @@ void Zadania::zadaniaZModyfikacjiKolekcji()
 {
 	//TODO: utworzyc kolekcje lancuchow, przeksztalcic ja za pomoca
 	//transform (#include <algorithm>) na lancuchy z duzymi literami
-	//a potem ze zliczaniem - tu uzyæ funktorów.
+	//teraz to do wykonania!!!:  a potem ze zliczaniem - tu uzyæ funktorów.
+	vector<string> inS = { "Merkury", "Wenus", "Ziemia", "Mars", "Jowisz", "Saturn",
+      "Uran", "Neptun", "Pluton" };
+	auto duzeLitery = [](const string& txt) -> string {
+		string kopiaStr(txt);
+		for (auto &ch : kopiaStr) ch = toupper(ch); 
+		/*auto & zamiast auto bo konstrukcja postaci auto ch : kopiaStr
+		powoduje ¿e zmienna ch ,,przebiega'' oczywiœcie wszystkie
+		znaki ³añcucha kopiaStr ale jest to zmienna lokalna i jej modyfikacja 
+		niczego w ³añcuchu kopiaStr nie zmienia */
+		return kopiaStr;
+	};
+	vector<string> outS(inS.size());
+	transform(inS.begin(), inS.end(), outS.begin(), duzeLitery);
+	cout << "Kolekcja przeksztalcona:\n";
+	for (auto txt : outS)
+		cout << txt << endl;
+	cout << endl;
 };
