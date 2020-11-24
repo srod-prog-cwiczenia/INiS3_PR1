@@ -154,6 +154,7 @@ void Zadania::zadaniaZModyfikacjiKolekcji()
 	//teraz to do wykonania!!!:  a potem ze zliczaniem - tu uzyæ funktorów.
 	vector<string> inS = { "Merkury", "Wenus", "Ziemia", "Mars", "Jowisz", "Saturn",
       "Uran", "Neptun", "Pluton" };
+	//lambda funkcja:
 	auto duzeLitery = [](const string& txt) -> string {
 		string kopiaStr(txt);
 		for (auto &ch : kopiaStr) ch = toupper(ch); 
@@ -163,10 +164,27 @@ void Zadania::zadaniaZModyfikacjiKolekcji()
 		niczego w ³añcuchu kopiaStr nie zmienia */
 		return kopiaStr;
 	};
-	vector<string> outS(inS.size());
-	transform(inS.begin(), inS.end(), outS.begin(), duzeLitery);
-	cout << "Kolekcja przeksztalcona:\n";
-	for (auto txt : outS)
+	/*to poni¿ej to funktor zliczaj¹cy (czyli maj¹cy ,,wewnêtrzny stan'')*/
+	struct ZliczanieFun {
+		int licznik;
+		ZliczanieFun() : licznik(0) {};
+		string operator ()(const string &txt_p) {
+			return to_string(++licznik) + ". " + txt_p;
+		};
+	};
+
+	vector<string> outS1(inS.size());
+	transform(inS.begin(), inS.end(), outS1.begin(), duzeLitery);
+	cout << "Kolekcja przeksztalcona za pomoca lambda funkcji:\n";
+	for (auto txt : outS1)
+		cout << txt << endl;
+	cout << string(50, '=') << endl;
+
+	vector<string> outS2(inS.size());
+	transform(inS.begin(), inS.end(), outS2.begin(), ZliczanieFun());
+	cout << "Kolekcja przeksztalcona za pomoca funktorów:\n";
+	for (auto txt : outS2)
 		cout << txt << endl;
 	cout << endl;
+
 };
