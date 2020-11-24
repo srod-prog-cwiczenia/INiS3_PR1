@@ -69,6 +69,7 @@ odwo³ujemy siê do niej poprzez Zadania::DaneOsobyStr */
 	static void testyKlasyKolekcja();
 	static void rolaModyfikatoraVirtual();
 	static void zadaniaZModyfikacjiKolekcji();
-
+	static void zbiorDaneOsoTesty();
+	static void zadaniaZSzablonow();
 };
 

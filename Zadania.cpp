@@ -196,4 +196,14 @@ void Zadania::zadaniaZModyfikacjiKolekcji()
 	zlicz.reset();
 	cout << zlicz("Numeracja od poczatku") << endl;
 	cout << string(50, '+') << endl;
-};
+}
+void Zadania::zbiorDaneOsoTesty()
+{
+	/* utworzyc zbior set<DaneOsoStr> i sprawdzic dlaczego
+	musi (?) byæ prze³adowany operator < */
+}
+void Zadania::zadaniaZSzablonow()
+{
+	//tu bêd¹ zadania z szablonów...
+}
+;
