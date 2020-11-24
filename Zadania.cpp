@@ -171,6 +171,7 @@ void Zadania::zadaniaZModyfikacjiKolekcji()
 		string operator ()(const string &txt_p) {
 			return to_string(++licznik) + ". " + txt_p;
 		};
+		void reset(int naIle = 0) { licznik = naIle; }; //zbêdna metoda pomocniczna, ale niech bêdzie
 	};
 
 	vector<string> outS1(inS.size());
@@ -187,4 +188,12 @@ void Zadania::zadaniaZModyfikacjiKolekcji()
 		cout << txt << endl;
 	cout << endl;
 
+	//u¿ycie funktora ,,lokalnie'':
+	cout << string(50, '+') << endl;
+	ZliczanieFun zlicz;
+	cout << zlicz("Jeden") << endl;
+	cout << zlicz("Dwa") << endl;
+	zlicz.reset();
+	cout << zlicz("Numeracja od poczatku") << endl;
+	cout << string(50, '+') << endl;
 };
