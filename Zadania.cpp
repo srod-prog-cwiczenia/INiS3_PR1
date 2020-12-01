@@ -35,6 +35,12 @@ void Zadania::przeciazanieOperatorow() {
 	  pierwszy od lewej wykrzyknik to po prostu negacja boolowska */
 	cout << endl << "Rzutowanie do typu string:" << (string)oso0 << endl;
 	cout << endl << "Dodawanie struktur: " << (string)(oso + oso0) << endl;
+	//testy na += i ++:
+	DaneOsobyStr osoN = { "Anna", "Kowalska", 25 };
+	osoN++;
+	assert(osoN.wiek == 26);
+	osoN += oso0;
+	cout << "Po += : " << (string)osoN << endl;
 }
 void Zadania::testyKlasyKolekcja_funkcjaWirtualna()
 {

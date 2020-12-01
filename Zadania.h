@@ -62,6 +62,11 @@ odwo³ujemy siê do niej poprzez Zadania::DaneOsobyStr */
 		}
 		/* zadanie domowe: napisaæ przeci¹¿enie (=,,prze³adowanie'')
 		operatora ++ i -- (niech tylko zwiêksza lub zmniejsza wiek o 1) */
+		DaneOsobyStr& operator ++() { wiek++; return *this; }; //prefiksowy
+		DaneOsobyStr operator ++(int) { DaneOsobyStr pom = *this; 
+		  ++(*this);
+		  return pom;
+		}; //postfiksowy
 	};
 	// metody klasy:
 	static void przeciazanieOperatorow();
