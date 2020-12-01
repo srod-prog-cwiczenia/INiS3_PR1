@@ -2,6 +2,24 @@
 #include "TMenu.h"
 //#include "TestKolekcji.h"
 #include "FormatowanieKolekcji.h"
+//samodzielny szablon:
+template <typename T>
+class TrzymaczTrojek {
+private:
+	T p[3];
+public:
+	TrzymaczTrojek(const T& a1, const T& a2, const T& a3) {
+		p[0] = a1;
+		p[1] = a2;
+		p[2] = a3;
+	};
+	T getElement(const unsigned int nr) {
+		assert(nr <= 3 && nr >= 1 && !"Zly indeks w getElement szablonu TrzymaczTrojek");
+		return p[nr - 1];
+	}
+};
+
+
 void Zadania::przeciazanieOperatorow() {
 	/* Zadanie 1:zdefiniowaæ strukturê DaneOsobyStr która
 	bêdzie zawieraæ pola: imie, nazwisko, wiek.
@@ -220,5 +238,8 @@ void Zadania::zbiorDaneOsoTesty()
 void Zadania::zadaniaZSzablonow()
 {
 	//tu bêd¹ zadania z szablonów...
+	//æwiczenie: zdefiniujemy (utorzymy) szablon ,,trzymacz'' - ,,pojemnik'' - na trójki obiektów
+
+
 }
 ;
