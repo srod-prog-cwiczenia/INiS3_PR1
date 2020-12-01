@@ -8,7 +8,7 @@ string FormatowanieKolekcji::formatowanie(const string &linia) {
    if (linia.length() >=  MAX_ROZMIAR_LINII) 
      return linia;
    unsigned int ile = 
-     (MAX_ROZMIAR_LINII - linia.length()) / 2; 
+     (MAX_ROZMIAR_LINII - (unsigned int)linia.length()) / 2; 
    return string(ile, ZNAK_FORMATUJACY) + linia + 
        string(ile, ZNAK_FORMATUJACY);
 };  

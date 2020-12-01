@@ -1,73 +1,77 @@
 #pragma once
 #include "define.h"
+struct DaneOsobyStr {
+	string imie, nazwisko;
+	unsigned long int wiek;
+	DaneOsobyStr(const string& imie_p, const string& nazwisko_p,
+		const unsigned long int& wiek_p) : imie
+		(imie_p), nazwisko(nazwisko_p), wiek(wiek_p) {};
+	string toString() const {
+		return "imie: " + imie + "; nazwisko: " + nazwisko
+			+ "; wiek: " + to_string(wiek);
+	}
+	//rozwi¹zanie zadania 3 - przeci¹¿enia operatorów porównañ: <,>,==,!=,<=,>=:
+	friend bool operator<(const DaneOsobyStr& a, const DaneOsobyStr& b) {
+		if (a.nazwisko < b.nazwisko) return true;
+		if (a.nazwisko > b.nazwisko) return false;
+		if (a.imie < b.imie) return true;
+		if (a.imie > b.imie) return false;
+		if (a.wiek < b.wiek) return true;
+		if (a.wiek > b.wiek) return false;
+		return false;
+	}
+	friend bool operator>=(const DaneOsobyStr& a, const DaneOsobyStr& b) {
+		return !(a < b);
+	}
+	friend bool operator==(const DaneOsobyStr& a, const DaneOsobyStr& b) {
+		return a.nazwisko == b.nazwisko && a.imie == b.imie && a.wiek == b.wiek;
+		//mog³o byæ te¿ tak: return !(a < b) && !(b < a);
+	}
+	friend bool operator!=(const DaneOsobyStr& a, const DaneOsobyStr& b) {
+		return !(a == b);
+	}
+	friend bool operator >(const DaneOsobyStr& a, const DaneOsobyStr& b) {
+		return a >= b && a != b;
+	}
+	friend bool operator <= (const DaneOsobyStr& a, const DaneOsobyStr& b) {
+		return a < b || a == b;
+	}
+	/*przeci¹¿enie operatora negacji: */
+	bool operator! () const {
+		return imie.empty() && nazwisko.empty() && !wiek;
+	}
+	/*przeci¹¿enie operatorów rzutowañ: */
+	operator string() const {
+		return toString();
+	}
+	/* przeci¹¿enie operatorów dodawania: + oraz += */
+	friend DaneOsobyStr operator + (const DaneOsobyStr& a, const DaneOsobyStr& b) {
+		return DaneOsobyStr(a.imie + b.imie,
+			a.nazwisko + b.nazwisko,
+			a.wiek + b.wiek
+		);
+	}
+	friend DaneOsobyStr operator += (DaneOsobyStr& a, const DaneOsobyStr& b) {//a += b
+		a = a + b;
+		return a;
+	}
+	/* zadanie domowe: napisaæ przeci¹¿enie (=,,prze³adowanie'')
+	operatora ++ i -- (niech tylko zwiêksza lub zmniejsza wiek o 1) */
+	DaneOsobyStr& operator ++() { wiek++; return *this; }; //prefiksowy
+	DaneOsobyStr operator ++(int) {
+		DaneOsobyStr pom = *this;
+		++(*this);
+		return pom;
+	}; //postfiksowy
+};
+
 class Zadania
 {
 public:
-	/*struktura DaneOsobyStr to tzw. klasa wewnêtrzna, w main programu
-odwo³ujemy siê do niej poprzez Zadania::DaneOsobyStr */
-	struct DaneOsobyStr {
-		string imie, nazwisko;
-		unsigned long int wiek;
-		DaneOsobyStr(const string &imie_p, const string &nazwisko_p,
-			const unsigned long int &wiek_p) : imie
-			(imie_p), nazwisko(nazwisko_p), wiek(wiek_p) {};
-		string toString() const {
-			return "imie: " + imie + "; nazwisko: " + nazwisko
-				+ "; wiek: " + to_string(wiek);
-		}
-		//rozwi¹zanie zadania 3 - przeci¹¿enia operatorów porównañ: <,>,==,!=,<=,>=:
-		friend bool operator<(const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			if (a.nazwisko < b.nazwisko) return true;
-			if (a.nazwisko > b.nazwisko) return false;
-			if (a.imie < b.imie) return true;
-			if (a.imie > b.imie) return false;
-			if (a.wiek < b.wiek) return true;
-			if (a.wiek > b.wiek) return false;
-			return false;
-		}
-		friend bool operator>=(const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return !(a < b);
-		}
-		friend bool operator==(const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return a.nazwisko == b.nazwisko && a.imie == b.imie && a.wiek == b.wiek;
-			//mog³o byæ te¿ tak: return !(a < b) && !(b < a);
-		}
-		friend bool operator!=(const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return !(a == b);
-		}
-		friend bool operator >(const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return a >= b && a != b;
-		}
-		friend bool operator <= (const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return a < b || a == b;
-		}
-		/*przeci¹¿enie operatora negacji: */
-		bool operator! () const {
-			return imie.empty() && nazwisko.empty() && !wiek;
-		}
-		/*przeci¹¿enie operatorów rzutowañ: */
-		operator string() const {
-			return toString();
-		}
-		/* przeci¹¿enie operatorów dodawania: + oraz += */
-		friend DaneOsobyStr operator + (const DaneOsobyStr& a, const DaneOsobyStr& b) {
-			return DaneOsobyStr(a.imie + b.imie,
-				a.nazwisko + b.nazwisko,
-				a.wiek + b.wiek
-			);
-		}
-		friend DaneOsobyStr operator += (DaneOsobyStr& a, const DaneOsobyStr& b) {//a += b
-			a = a + b;
-			return a;
-		}
-		/* zadanie domowe: napisaæ przeci¹¿enie (=,,prze³adowanie'')
-		operatora ++ i -- (niech tylko zwiêksza lub zmniejsza wiek o 1) */
-		DaneOsobyStr& operator ++() { wiek++; return *this; }; //prefiksowy
-		DaneOsobyStr operator ++(int) { DaneOsobyStr pom = *this; 
-		  ++(*this);
-		  return pom;
-		}; //postfiksowy
-	};
+	/*struktura DaneOsobyStr by³a klas¹ wewnêtrzn¹ klasy Zadania
+	(czyli w main programu odwo³ywaliœmy siê do niej poprzez Zadania::DaneOsobyStr ),
+	jednak aby unikn¹æ k³opotów z parserem programu w edytorze zosta³a
+	wydzielona jako samodzielna, */
 	// metody klasy:
 	static void przeciazanieOperatorow();
 	static void testyKlasyKolekcja_funkcjaWirtualna();
