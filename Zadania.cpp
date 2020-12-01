@@ -203,11 +203,12 @@ void Zadania::zbiorDaneOsoTesty()
 	musi (?) byæ prze³adowany operator < */
 	set<DaneOsobyStr> zOso;
 	zOso.insert(DaneOsobyStr("Anna", "Kowalska", 25));
+	zOso.insert(DaneOsobyStr("Anna", "Kowalska", 30));
 	zOso.insert(DaneOsobyStr("Dorota", "Nowak", 24));
 	zOso.insert(DaneOsobyStr("Dorota", "Nowak", 24)); //specjalnie powtórzony by sprawdziæ jak siê zachowa set
 	zOso.insert(DaneOsobyStr("Artur", "Koralewski", 20));
 	cout << "Lista zbioru osob: \n";
-	for (auto oso : zOso)
+	for (const auto &oso : zOso)
 		cout << (string)oso << endl;
 }
 void Zadania::zadaniaZSzablonow()

@@ -17,9 +17,9 @@ private:
 	vector<string> vec;
 	TFunkcjaFormatowanie funFormat = NULL;
 public:
-	TestKolekcji(const int ile); //konstruktor
-	TestKolekcji(const char co);  //konstruktor
-	TestKolekcji(const TRodzajWypelnieniaWektora co);//konstruktor
+	TestKolekcji(const int &ile); //konstruktor
+	TestKolekcji(const char &co);  //konstruktor
+	TestKolekcji(const TRodzajWypelnieniaWektora &co);//konstruktor
 	~TestKolekcji(); //destruktor
 	void wypisanie();
 	virtual string formatowanie(const string &linia);

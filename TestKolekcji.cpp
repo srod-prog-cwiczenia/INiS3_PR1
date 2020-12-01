@@ -1,6 +1,6 @@
 #include "TestKolekcji.h"
 
-TestKolekcji::TestKolekcji(const int ile)
+TestKolekcji::TestKolekcji(const int &ile)
 {  //konstruktor
 	for (int i = 0; i < ile; i++) {
 		vec.push_back(to_string(i));
@@ -13,7 +13,7 @@ TestKolekcji::TestKolekcji(const int ile)
 	//for (int i = 0; i < ile; vec.push_back(to_string(i++)));
 }
 
-TestKolekcji::TestKolekcji(const char co)
+TestKolekcji::TestKolekcji(const char &co)
 {
 	switch (co) {
 	case WEKTOR_DNI_TYGODNIA:
@@ -31,7 +31,7 @@ TestKolekcji::TestKolekcji(const char co)
 	}
 }
 
-TestKolekcji::TestKolekcji(const TRodzajWypelnieniaWektora co)
+TestKolekcji::TestKolekcji(const TRodzajWypelnieniaWektora &co)
 {
 	switch (co) {
 	case TRodzajWypelnieniaWektora::rwwDniTygodnia: 

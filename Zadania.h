@@ -8,10 +8,10 @@ odwo³ujemy siê do niej poprzez Zadania::DaneOsobyStr */
 	struct DaneOsobyStr {
 		string imie, nazwisko;
 		unsigned long int wiek;
-		DaneOsobyStr(string imie_p, string nazwisko_p,
-			unsigned long int wiek_p) : imie
+		DaneOsobyStr(const string &imie_p, const string &nazwisko_p,
+			const unsigned long int &wiek_p) : imie
 			(imie_p), nazwisko(nazwisko_p), wiek(wiek_p) {};
-		string toString() {
+		string toString() const {
 			return "imie: " + imie + "; nazwisko: " + nazwisko
 				+ "; wiek: " + to_string(wiek);
 		}
@@ -30,6 +30,7 @@ odwo³ujemy siê do niej poprzez Zadania::DaneOsobyStr */
 		}
 		friend bool operator==(const DaneOsobyStr& a, const DaneOsobyStr& b) {
 			return a.nazwisko == b.nazwisko && a.imie == b.imie && a.wiek == b.wiek;
+			//mog³o byæ te¿ tak: return !(a < b) && !(b < a);
 		}
 		friend bool operator!=(const DaneOsobyStr& a, const DaneOsobyStr& b) {
 			return !(a == b);
@@ -41,11 +42,11 @@ odwo³ujemy siê do niej poprzez Zadania::DaneOsobyStr */
 			return a < b || a == b;
 		}
 		/*przeci¹¿enie operatora negacji: */
-		bool operator! () {
+		bool operator! () const {
 			return imie.empty() && nazwisko.empty() && !wiek;
 		}
 		/*przeci¹¿enie operatorów rzutowañ: */
-		operator string() {
+		operator string() const {
 			return toString();
 		}
 		/* przeci¹¿enie operatorów dodawania: + oraz += */

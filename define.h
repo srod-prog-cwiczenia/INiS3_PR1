@@ -1,8 +1,10 @@
 #pragma once
 #include <string>
+//inkludy czterech najczêœciej (?) u¿ywanych kolekcji w C++:
 #include <vector>
 #include <set>
 #include <list>
+#include <map>
 #include <iostream>
 #include <cstdarg>
 #include <assert.h>
