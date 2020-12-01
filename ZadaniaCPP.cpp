@@ -56,11 +56,12 @@ int main()
 	bool koniec = false;
 	do {
 		TMenu* mnu = new TMenu();
-		mnu->addAll(5, "Test klas Kolekcja",
+		mnu->addAll(6, "Test klas Kolekcja",
 			"Przyklad modyfikatora virtual",
 			"Test rodzajow przekazywania argumentu",
 			"Przeciazanie operatorow (zadania)",
-			"Zadania z automatycznej modyfikacji kolekcji");
+			"Zadania z automatycznej modyfikacji kolekcji", 
+			"Zadanie z obslugi kolekcji set<DaneOsoStr>");
 		switch (mnu->wybierz()) {
 		case 0:
 			koniec = true;
@@ -79,6 +80,9 @@ int main()
 			break;
 		case 5:
 			Zadania::zadaniaZModyfikacjiKolekcji();
+			break;
+		case 6: 
+			Zadania::zbiorDaneOsoTesty();
 			break;
 		}
 		delete mnu;

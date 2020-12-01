@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <set>
+#include <list>
 #include <iostream>
 #include <cstdarg>
 #include <assert.h>
