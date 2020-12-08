@@ -19,7 +19,15 @@ public:
 	}
 };
 /*zadanie - utworzyæ szablon symuluj¹cy stos typu LIFO */
-
+//-------------------------------------------
+template <typename T> // to jest template(=szablon) ale klasy abstrakcyjnej, 
+//czyli odpowiednika w C++ interfejsu
+class TStosInterface {
+	virtual void push(const T& ele) = 0;
+	virtual T pop() = 0;
+	virtual unsigned int rozmiar() = 0;
+};
+//-------------------------------------------
 void Zadania::przeciazanieOperatorow() {
 	/* Zadanie 1:zdefiniowaæ strukturê DaneOsobyStr która
 	bêdzie zawieraæ pola: imie, nazwisko, wiek.
