@@ -28,6 +28,44 @@ class TStosInterface {
 	virtual unsigned int rozmiar() = 0;
 };
 //-------------------------------------------
+template <typename T>
+class TStos : public TStosInterface<T> {
+private:
+	unsigned int licznik = 0;
+	struct TElementStr {
+		T element; //ewentualnie T* element;
+		TElementStr* nastepny;
+	};
+	TElementStr* korzen = NULL;
+public:
+	TStos() {};
+	~TStos() {
+		/*TODO: KONIECZNIE dopisaæ destruktor który zwalnia pamiêæ
+		na wszystkie elementy stosu. CHYBA gdyby u¿yæ autowskaŸników.
+		*/
+	};
+	void push(const T& ele) {
+		TElementStr* nowyEle = new TElementStr();
+		nowyEle->nastepny = korzen;
+		nowyEle->element = ele;
+		korzen = nowyEle;
+		licznik++;
+	};
+	T pop() {
+		if (licznik == 0) {
+			T dummy = NULL; return dummy;
+		}
+		else {
+			T odp = korzen->element;
+			TElementStr* doUsuniecia = korzen;
+			korzen = korzen->nastepny;
+			delete doUsuniecia;
+			return odp;
+		}
+	}
+	unsigned int rozmiar() { return licznik; }
+};
+//-------------------------------------------
 void Zadania::przeciazanieOperatorow() {
 	/* Zadanie 1:zdefiniowaæ strukturê DaneOsobyStr która
 	bêdzie zawieraæ pola: imie, nazwisko, wiek.
