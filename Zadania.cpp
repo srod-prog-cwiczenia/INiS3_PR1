@@ -40,9 +40,11 @@ private:
 public:
 	TStos() {};
 	~TStos() {
-		/*TODO: KONIECZNIE dopisaæ destruktor który zwalnia pamiêæ
+		/* destruktor który zwalnia pamiêæ
 		na wszystkie elementy stosu. CHYBA gdyby u¿yæ autowskaŸników.
 		*/
+		while (licznik > 0)
+			pop();
 	};
 	void push(const T& ele) {
 		TElementStr* nowyEle = new TElementStr();
@@ -53,13 +55,15 @@ public:
 	};
 	T pop() {
 		if (licznik == 0) {
-			T dummy = NULL; return dummy;
+			//T dummy = NULL; return dummy;  //, albo mo¿e lepiej tak:
+			assert(!"Proba zdjecia elementu ze stosu pustego!");
 		}
 		else {
 			T odp = korzen->element;
 			TElementStr* doUsuniecia = korzen;
 			korzen = korzen->nastepny;
 			delete doUsuniecia;
+			licznik--;
 			return odp;
 		}
 	}
