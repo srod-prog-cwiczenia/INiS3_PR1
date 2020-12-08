@@ -317,6 +317,29 @@ void Zadania::zadaniaZSzablonow()
 			break;
 		}
 		case 2: {
+			TStos<int> sInt;
+			for (int i = 1; i < 20; i += 3)
+				sInt.push(i);
+			cout << "Elementy stosu int-ów : " << endl;
+			while (sInt.rozmiar()) {
+				cout << sInt.pop();
+				if (sInt.rozmiar())
+					cout << "\t";
+			}
+			cout << endl;
+
+			TStos<DaneOsobyStr> sOso;
+			sOso.push(DaneOsobyStr("Anna", "Kowalska", 25));
+			sOso.push(DaneOsobyStr("Anna", "Kowalska", 30));
+			sOso.push(DaneOsobyStr("Dorota", "Nowak", 24));
+
+			cout << "Elementy stosu struktur DaneOsobyStr: " << endl;
+			while (sOso.rozmiar()) {
+				cout << sOso.pop();
+				if (sOso.rozmiar())
+					cout << "\t";
+			}
+			cout << endl;
 			break; 
 		}
 		}
