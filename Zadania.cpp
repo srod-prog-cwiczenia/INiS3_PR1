@@ -59,6 +59,12 @@ void Zadania::przeciazanieOperatorow() {
 	assert(osoN.wiek == 26);
 	osoN += oso0;
 	cout << "Po += : " << (string)osoN << endl;
+	/*dodatkowe zadanie nr 4:
+prze³adowaæ operator << dla DaneOsobyStr tak aby nie trzeba
+by³o pisaæ cout << (string)oso tylko cout << oso*/
+	cout << "A teraz przetestowanie przeladowania "
+		"przekierowania do strumienia...: " << osoN << endl;
+
 }
 void Zadania::testyKlasyKolekcja_funkcjaWirtualna()
 {
@@ -247,9 +253,6 @@ void Zadania::zadaniaZSzablonow()
 	};
 	cout << "Pierwszy element t3: (7): " << t3.getElement(1) << endl;
 	cout << "Pierwszy element s3: (Ala): " << s3.getElement(1) << endl;
-	cout << "Pierwszy element o3: (Anna Kowalska): " << (string)o3.getElement(1) << endl;
-	/*dodatkowe zadanie:
-	prze³adowaæ operator << dla DaneOsobyStr tak aby nie trzeba
-	by³o pisaæ cout << (string)oso tylko cout << oso*/
+	cout << "Pierwszy element o3: (Anna Kowalska): " << o3.getElement(1) << endl;
 }
 ;

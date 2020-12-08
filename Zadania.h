@@ -64,6 +64,15 @@ struct DaneOsobyStr {
 		++(*this);
 		return pom;
 	}; //postfiksowy
+	/* rozwi¹zanie zadania nr 4: prze³adowanie operatora << (przekierowanie do strumienia) */
+	/*ostream& operator << (ostream& strumien) {
+		strumien << (string)(*this);
+		return strumien;
+	}*/
+	friend ostream& operator << (ostream& strumien, const DaneOsobyStr &a) {
+		strumien << (string)a;
+		return strumien;
+	}
 };
 
 class Zadania
