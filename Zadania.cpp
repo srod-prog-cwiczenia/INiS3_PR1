@@ -14,7 +14,7 @@ public:
 		p[2] = a3;
 	};
 	T getElement(const unsigned int nr) {
-		assert(nr <= 3 && nr >= 1 && !"Zly indeks w getElement szablonu TrzymaczTrojek");
+		assert(nr <= 3 && nr >= 1 && "Zly indeks w getElement szablonu TrzymaczTrojek");
 		return p[nr - 1];
 	}
 };
@@ -239,7 +239,17 @@ void Zadania::zadaniaZSzablonow()
 {
 	//tu bêd¹ zadania z szablonów...
 	//æwiczenie: zdefiniujemy (utorzymy) szablon ,,trzymacz'' - ,,pojemnik'' - na trójki obiektów
-
-
+	TrzymaczTrojek<int> t3 = { 7, 13, 17 };
+	TrzymaczTrojek<string> s3 = { "Ala", "ma", "kota" };
+	TrzymaczTrojek<DaneOsobyStr> o3 = { {"Anna", "Kowalska", 30},
+		{"Dorota", "Nowak", 24 },
+		{"Artur", "Koralewski", 20 }
+	};
+	cout << "Pierwszy element t3: (7): " << t3.getElement(1) << endl;
+	cout << "Pierwszy element s3: (Ala): " << s3.getElement(1) << endl;
+	cout << "Pierwszy element o3: (Anna Kowalska): " << (string)o3.getElement(1) << endl;
+	/*dodatkowe zadanie:
+	prze³adowaæ operator << dla DaneOsobyStr tak aby nie trzeba
+	by³o pisaæ cout << (string)oso tylko cout << oso*/
 }
 ;

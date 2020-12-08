@@ -3,6 +3,7 @@
 struct DaneOsobyStr {
 	string imie, nazwisko;
 	unsigned long int wiek;
+	DaneOsobyStr() : wiek(0) {};
 	DaneOsobyStr(const string& imie_p, const string& nazwisko_p,
 		const unsigned long int& wiek_p) : imie
 		(imie_p), nazwisko(nazwisko_p), wiek(wiek_p) {};
