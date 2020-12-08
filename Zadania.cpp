@@ -18,7 +18,7 @@ public:
 		return p[nr - 1];
 	}
 };
-
+/*zadanie - utworzyæ szablon symuluj¹cy stos typu LIFO */
 
 void Zadania::przeciazanieOperatorow() {
 	/* Zadanie 1:zdefiniowaæ strukturê DaneOsobyStr która
@@ -244,15 +244,33 @@ void Zadania::zbiorDaneOsoTesty()
 void Zadania::zadaniaZSzablonow()
 {
 	//tu bêd¹ zadania z szablonów...
-	//æwiczenie: zdefiniujemy (utorzymy) szablon ,,trzymacz'' - ,,pojemnik'' - na trójki obiektów
-	TrzymaczTrojek<int> t3 = { 7, 13, 17 };
-	TrzymaczTrojek<string> s3 = { "Ala", "ma", "kota" };
-	TrzymaczTrojek<DaneOsobyStr> o3 = { {"Anna", "Kowalska", 30},
-		{"Dorota", "Nowak", 24 },
-		{"Artur", "Koralewski", 20 }
-	};
-	cout << "Pierwszy element t3: (7): " << t3.getElement(1) << endl;
-	cout << "Pierwszy element s3: (Ala): " << s3.getElement(1) << endl;
-	cout << "Pierwszy element o3: (Anna Kowalska): " << o3.getElement(1) << endl;
+	bool koniec = false;
+	do {
+		TMenu* mnu = new TMenu();
+		mnu->addAll(2, "Test szablonu TrzymaczTrojek",
+			"Test szablonu TStos");
+		switch (mnu->wybierz()) {
+		case 0:
+			koniec = true;
+			break;
+		case 1: {
+			//æwiczenie: zdefiniujemy (utorzymy) szablon ,,trzymacz'' - ,,pojemnik'' - na trójki obiektów
+			TrzymaczTrojek<int> t3 = { 7, 13, 17 };
+			TrzymaczTrojek<string> s3 = { "Ala", "ma", "kota" };
+			TrzymaczTrojek<DaneOsobyStr> o3 = { {"Anna", "Kowalska", 30},
+				{"Dorota", "Nowak", 24 },
+				{"Artur", "Koralewski", 20 }
+			};
+			cout << "Pierwszy element t3: (7): " << t3.getElement(1) << endl;
+			cout << "Pierwszy element s3: (Ala): " << s3.getElement(1) << endl;
+			cout << "Pierwszy element o3: (Anna Kowalska): " << o3.getElement(1) << endl;
+			break;
+		}
+		case 2: {
+			break; 
+		}
+		}
+		delete mnu;
+	} while (!koniec);
 }
 ;
