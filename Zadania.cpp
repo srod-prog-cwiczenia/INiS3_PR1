@@ -341,6 +341,13 @@ void Zadania::zadaniaZSzablonow()
 			}
 			cout << endl;
 			break; 
+			/*
+			TODO: zauwa¿my ¿e sekwencja kodu wypisuj¹cego zawartoœæ stosu
+			powtarza siê dwukrotnie. Wiêc sugestia aby u¿yæ
+			potomnej klasy TStosExt i tam u¿yæ prze³adowanego operatora <<
+			do typu T.
+			TODO: Przepisaæ TStos na TStosAuto z wykorzystaniem autowskaŸników
+			*/
 		}
 		}
 		delete mnu;
